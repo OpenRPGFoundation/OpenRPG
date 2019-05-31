@@ -6,7 +6,9 @@ public interface IStats {
 
     int getStat(String statName);
 
-    void setStats(Map<String, Integer> stats);
+    void setStatValue(String stat, int value);
+
+    void setAllStats(Map<String, Integer> stats);
 
     String getAllStats();
 }
