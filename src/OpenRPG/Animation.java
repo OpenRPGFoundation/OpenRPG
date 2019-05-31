@@ -1,4 +1,4 @@
-package org.openrpg.OpenRPG;
+package OpenRPG;
 
 public interface Animation {
     public void animate(int frames);

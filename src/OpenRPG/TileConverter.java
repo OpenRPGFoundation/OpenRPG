@@ -1,4 +1,4 @@
-package org.openrpg.OpenRPG;
+package OpenRPG;
 
 import java.awt.*;
 
