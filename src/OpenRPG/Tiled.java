@@ -1,6 +1,6 @@
 package OpenRPG;
 
-public interface Tileed {
+public interface Tiled {
     int getTileHeight();
     int getTileWidth();
     void setTileHeight(int height);
