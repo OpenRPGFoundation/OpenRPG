@@ -2,9 +2,20 @@ package OpenRPG;
 
 import java.awt.*;
 
+/**
+ * A utility that assists in determining pixel and image location data in tile format
+ * games.
+ * <p>
+ * @author  Brother Falin
+ * @version 1.0
+ * @since   2016-12-08
+ * @see Tiled
+ * @see TileSet
+ */
+
 public class TileConverter {
 
-    public static Point convertToTile(int x, int y){
+    public static Point convertToTile(int x, int y, int height, int width){
         return null;
     }
 
@@ -16,8 +27,25 @@ public class TileConverter {
         return null;
     }
 
-    public static Point convertFromTile(Point location){
-        return null;
+    /*********************************************************************************
+     * Determines the location of the top left pixel for a tile given the tile's
+     * height, width, and a Point that represents the tile's location in a matrix.
+     * *******************************************************************************
+     */
+    public static Point convertFromTile(Point location, int tileHeight, int tileWidth){
+
+
+        int y = location.y * tileHeight;
+        int x = location.x * tileWidth;
+
+        return new Point(x, y);
+    }
+
+    static Point getTileLocation(int index, int totalWidth, int tileWidth) {
+
+        int y = index / (totalWidth / tileWidth);
+        int x = index % (totalWidth / tileWidth);
+        return new Point(x,y);
     }
 
 }

@@ -52,15 +52,10 @@ public class TileSet implements Tiled{
 
     @Override
     public Graphics getTile(int index) {
-       /*********************************************************************************
-        * The following code should be moved to the TileConverter class
-        * *******************************************************************************
-       int x, y;
-       int StartY = index / (tileSet.getClipBounds().width / tileWidth) * tileHeight;
-       int StartX = index % (tileSet.getClipBounds().width / tileWidth) * tileWidth;
-       */
 
-       //TODO: replace the x and y values with values that have been gleaned from the tile converter
-       return tileSet.create(0,0,tileWidth,tileHeight);
+       Point location = TileConverter.getTileLocation(index, tileSet.getClipBounds().width, tileWidth);
+       Point firstPixel = TileConverter.convertFromTile(location, tileHeight, tileWidth);
+
+       return tileSet.create(firstPixel.x, firstPixel.y, tileWidth, tileHeight);
     }
 }
