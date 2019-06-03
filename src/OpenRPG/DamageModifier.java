@@ -1,5 +1,5 @@
 package OpenRPG;
 
 public interface DamageModifier {
-    int modify(int base, float modifier);
+    int modify(int base);
 }
