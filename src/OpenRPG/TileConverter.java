@@ -3,12 +3,12 @@ package OpenRPG;
 import java.awt.*;
 
 /**
- * A utility that assists in determining pixel and image location data in tile format
+ * A utility that assists in determining pixel and image location data in grid format
  * games.
  * <p>
- * @author  Brother Falin
- * @version 1.0
- * @since   2016-12-08
+ * @author  Matthew Norton
+ * @version 0.1.0
+ * @since   2019-06-02
  * @see Tiled
  * @see TileSet
  */
