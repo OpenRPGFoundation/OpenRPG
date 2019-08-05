@@ -1,8 +1,9 @@
 package OpenRPG;
 
-public class DefaultAttack implements Attack, AttackProcessor{
+public class DefaultAttack implements Attack, AttackProcessor, Animation{
 
     private int baseDamage;
+    private DamageModifier modifier;
 
     DefaultAttack(){
         baseDamage = 1;
@@ -18,13 +19,9 @@ public class DefaultAttack implements Attack, AttackProcessor{
     }
 
     @Override
-    public void animateAtack() {
-
-    }
-
-    @Override
-    public void dealDamage() {
-
+    public void dealDamage(IGameCharacter attacker, IGameCharacter defender) {
+        int totalDamage = calculateDamage(attacker.getParameters(), defender.getParameters(), modifier);
+        defender.dealDamage(totalDamage);
     }
 
     @Override
@@ -37,5 +34,15 @@ public class DefaultAttack implements Attack, AttackProcessor{
         }
 
         return attack;
+    }
+
+    @Override
+    public void animate(int frames) {
+
+    }
+
+    @Override
+    public void animate(int... frames) {
+
     }
 }

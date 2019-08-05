@@ -2,6 +2,8 @@ package OpenRPG;
 
 public interface IGameCharacter {
 
-    IStats getStats();
+    IParameters getParameters();
+
+    void dealDamage(int damage);
 
 }
