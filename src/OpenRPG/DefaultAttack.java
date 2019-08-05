@@ -1,25 +1,28 @@
 package OpenRPG;
 
-import java.lang.reflect.Modifier;
-
 public class DefaultAttack implements Attack, AttackProcessor, Animation{
 
+    private String attackName;
     private int baseDamage;
     private DamageModifier modifier;
 
-    DefaultAttack(){
+    DefaultAttack(String name){
 
+        attackName = name;
         baseDamage = 1;
         modifier = new DamageModifier();
     }
 
-    DefaultAttack(int baseDamage){
+    DefaultAttack(String name, int baseDamage){
 
+        attackName = name;
         this.baseDamage = baseDamage;
         modifier = new DamageModifier();
     }
 
-    DefaultAttack(int baseDamage, DamageModifier modifier){
+    DefaultAttack(String name, int baseDamage, DamageModifier modifier){
+
+        attackName = name;
         this.baseDamage = baseDamage;
         this.modifier = modifier;
     }
@@ -27,6 +30,11 @@ public class DefaultAttack implements Attack, AttackProcessor, Animation{
     @Override
     public int getBaseDamage() {
         return baseDamage;
+    }
+
+    @Override
+    public String getAttackName() {
+        return attackName;
     }
 
     @Override

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class DefaultParty implements IParty {
 
-    List<IGameCharacter> characterList;
+    private List<IGameCharacter> characterList;
 
     public DefaultParty(){
         characterList = new ArrayList<>();
@@ -18,13 +18,18 @@ public class DefaultParty implements IParty {
     }
 
     @Override
-    public List getPartyMembers() {
+    public List<IGameCharacter> getPartyMembers() {
         return characterList;
     }
 
     @Override
     public IGameCharacter getCharacter(IGameCharacter character) {
         return characterList.get(characterList.indexOf(character));
+    }
+
+    @Override
+    public IGameCharacter getCharacterByIndex(int index) {
+        return characterList.get(index);
     }
 
     @Override
