@@ -4,11 +4,11 @@ import java.util.Map;
 
 public interface IParameters {
 
-    int getParameter(String statName);
+    int getParameter(String parameterName);
 
-    void setParameterValue(String stat, int value);
+    void setParameterValue(String parameter, int value);
 
-    void setAllParameters(Map<String, Integer> stats);
+    void setAllParameters(Map<String, Integer> parameters);
 
     String getAllParameters();
 }

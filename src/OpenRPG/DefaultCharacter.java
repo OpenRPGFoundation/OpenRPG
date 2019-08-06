@@ -17,11 +17,15 @@ public class DefaultCharacter implements IGameCharacter {
 
     @Override
     public IParameters getParameters() {
-        return null;
+        return parameters;
     }
 
     @Override
     public void dealDamage(int damage) {
+        parameters.setParameterValue("currentHP", damage);
+    }
 
+    public String getName() {
+        return name;
     }
 }
