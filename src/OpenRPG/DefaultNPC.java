@@ -2,7 +2,7 @@ package OpenRPG;
 
 public class DefaultNPC extends DefaultCharacter implements Moveable, Animation {
 
-    DefaultNPC() {
+    public DefaultNPC() {
         super(null, null);
     }
 

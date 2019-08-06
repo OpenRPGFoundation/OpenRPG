@@ -1,8 +1,8 @@
 package OpenRPG;
 
-public class DefaultPlayer extends DefaultCharacter implements Healable, Levelable, Moveable, Animation {
+public class DefaultPlayer extends DefaultCharacter implements Healable, Damageable, Levelable, Moveable, Animation {
 
-    DefaultPlayer(String name, IParameters parameters) {
+    public DefaultPlayer(String name, IParameters parameters) {
         super(name, parameters);
     }
 
@@ -39,6 +39,18 @@ public class DefaultPlayer extends DefaultCharacter implements Healable, Levelab
     @Override
     public void addExperience(int exp) {
 
+    }
+
+    @Override
+    public void damage(int amount) {
+        int oldHP = parameters.getParameter("currentHP");
+        int newHP = oldHP - amount;
+
+        if(newHP < 0) {
+            newHP = 0;
+        }
+
+        parameters.setParameterValue("currentHP", newHP);
     }
 
     @Override

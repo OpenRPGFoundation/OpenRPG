@@ -1,19 +1,26 @@
-package OpenRPG.Items;
-
-import OpenRPG.IGameCharacter;
-import OpenRPG.IParameters;
-
 /**
  * @author Matthew Norton
  *
  */
+package OpenRPG.Items;
+
+import OpenRPG.Healable;
+import OpenRPG.IParameters;
+
+
 public class HealingItem implements StackableItem {
 
     private String name;
     private int itemCount;
     private IParameters parameters;
 
-    HealingItem(String name, int itemCount, IParameters parameters) {
+    public HealingItem(String name, int itemCount, int potency, int value) {
+        this.name = name;
+        this.itemCount = itemCount;
+        this.parameters = new DefaultItemParameters(potency, value);
+    }
+
+    public HealingItem(String name, int itemCount, IParameters parameters) {
         this.name = name;
         this.itemCount = itemCount;
         this.parameters = parameters;
@@ -80,5 +87,10 @@ public class HealingItem implements StackableItem {
     public void useItem() {
 
         removeItems(1);
+    }
+
+    public void useItem(Healable target) {
+        target.heal(parameters.getParameter("potency"));
+        useItem();
     }
 }

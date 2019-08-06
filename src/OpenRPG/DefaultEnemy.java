@@ -2,7 +2,7 @@ package OpenRPG;
 
 public class DefaultEnemy extends DefaultCharacter implements Animation {
 
-    DefaultEnemy(String name, IParameters parameters) {
+    public DefaultEnemy(String name, IParameters parameters) {
         super(name, parameters);
     }
 
