@@ -7,6 +7,4 @@ public interface IItem {
 
     int getCost();
 
-    IParameters getParameters();
-
-}
+    IParameters getParameters();}

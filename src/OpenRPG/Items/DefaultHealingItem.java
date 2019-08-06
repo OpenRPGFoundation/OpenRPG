@@ -4,7 +4,6 @@
  */
 package OpenRPG.Items;
 
-import OpenRPG.Consumable;
 import OpenRPG.Healable;
 import OpenRPG.IParameters;
 
