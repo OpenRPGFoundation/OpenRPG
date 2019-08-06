@@ -9,5 +9,4 @@ public interface IItem {
 
     IParameters getParameters();
 
-    void useItem();
 }

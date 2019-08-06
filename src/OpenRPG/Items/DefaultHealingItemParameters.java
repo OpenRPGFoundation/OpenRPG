@@ -5,15 +5,15 @@ import OpenRPG.IParameters;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DefaultItemParameters implements IParameters {
+public class DefaultHealingItemParameters implements IParameters {
 
     Map<String, Integer> parameters;
 
-    public DefaultItemParameters() {
+    public DefaultHealingItemParameters() {
         parameters = new HashMap<>();
     }
 
-    public DefaultItemParameters(int potency, int value) {
+    public DefaultHealingItemParameters(int potency, int value) {
         parameters = new HashMap<>();
         parameters.put("potency", potency);
         parameters.put("value", value);

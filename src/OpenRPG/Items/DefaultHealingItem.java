@@ -4,23 +4,24 @@
  */
 package OpenRPG.Items;
 
+import OpenRPG.Consumable;
 import OpenRPG.Healable;
 import OpenRPG.IParameters;
 
 
-public class HealingItem implements StackableItem {
+public class DefaultHealingItem implements StackableItem, Consumable {
 
     private String name;
     private int itemCount;
     private IParameters parameters;
 
-    public HealingItem(String name, int itemCount, int potency, int value) {
+    public DefaultHealingItem(String name, int itemCount, int potency, int value) {
         this.name = name;
         this.itemCount = itemCount;
-        this.parameters = new DefaultItemParameters(potency, value);
+        this.parameters = new DefaultHealingItemParameters(potency, value);
     }
 
-    public HealingItem(String name, int itemCount, IParameters parameters) {
+    public DefaultHealingItem(String name, int itemCount, IParameters parameters) {
         this.name = name;
         this.itemCount = itemCount;
         this.parameters = parameters;
@@ -84,13 +85,17 @@ public class HealingItem implements StackableItem {
      *
      */
     @Override
-    public void useItem() {
+    public void consumeItem() {
 
         removeItems(1);
     }
 
+    /**
+     *
+     * @param target
+     */
     public void useItem(Healable target) {
         target.heal(parameters.getParameter("potency"));
-        useItem();
+        consumeItem();
     }
 }
