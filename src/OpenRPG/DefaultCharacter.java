@@ -2,8 +2,8 @@ package OpenRPG;
 
 public class DefaultCharacter implements IGameCharacter {
 
-    private String name;
-    private IParameters parameters;
+    protected String name;
+    protected IParameters parameters;
 
     DefaultCharacter() {
         this.name = null;

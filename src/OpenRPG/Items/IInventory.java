@@ -1,4 +1,4 @@
-package OpenRPG;
+package OpenRPG.Items;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package OpenRPG;
+package OpenRPG.Items;
 
-public interface Stackable extends IItem {
+public interface StackableItem extends IItem {
     int getItemCount();
     void addItems(int number);
     void removeItems(int number);
