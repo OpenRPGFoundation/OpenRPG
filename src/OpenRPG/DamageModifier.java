@@ -1,14 +1,14 @@
 package OpenRPG;
 
-class DamageModifier {
+class Modifier {
 
     private float modifierValue;
 
-    DamageModifier(){
-        modifierValue = 0;
+    Modifier(){
+        modifierValue = 1;
     }
 
-    DamageModifier(float modifier){
+    Modifier(float modifier){
         modifierValue = modifier;
     }
 

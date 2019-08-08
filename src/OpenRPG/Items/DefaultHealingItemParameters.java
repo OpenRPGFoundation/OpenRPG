@@ -5,37 +5,30 @@ import OpenRPG.IParameters;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DefaultHealingItemParameters implements IParameters {
-
-    Map<String, Integer> parameters;
+public class DefaultHealingItemParameters extends DefaultParameters {
 
     public DefaultHealingItemParameters() {
-        parameters = new HashMap<>();
-    }
-
-    public DefaultHealingItemParameters(int potency, int value) {
-        parameters = new HashMap<>();
-        parameters.put("potency", potency);
-        parameters.put("value", value);
-    }
-
-    @Override
-    public int getParameter(String parameterName) {
-        return parameters.get(parameterName);
-    }
-
-    @Override
-    public void setParameterValue(String parameter, int value) {
-        parameters.put(parameter, value);
-    }
-
-    @Override
-    public void setAllParameters(Map<String, Integer> parameters) {
-        this.parameters = parameters;
+        super();
+        parameters.put("potency", 0);
+        parameters.put("value", 0);
     }
 
     @Override
     public String getAllParameters() {
         return null;
+    }
+
+    public DefaultHealingItemParameters(int potency, int value) {
+        super();
+        parameters.put("potency", potency);
+        parameters.put("value", value);
+    }
+
+    public int getPotency() {
+        return getParameter("potency");
+    }
+
+    public int getValue() {
+        return parameters.get("value");
     }
 }

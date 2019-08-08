@@ -12,7 +12,7 @@ public class DefaultHealingItem implements StackableItem, Consumable {
 
     private String name;
     private int itemCount;
-    private IParameters parameters;
+    private DefaultHealingItemParameters parameters;
 
     public DefaultHealingItem(String name, int itemCount, int potency, int value) {
         this.name = name;
@@ -20,7 +20,7 @@ public class DefaultHealingItem implements StackableItem, Consumable {
         this.parameters = new DefaultHealingItemParameters(potency, value);
     }
 
-    public DefaultHealingItem(String name, int itemCount, IParameters parameters) {
+    public DefaultHealingItem(String name, int itemCount, DefaultHealingItemParameters parameters) {
         this.name = name;
         this.itemCount = itemCount;
         this.parameters = parameters;
@@ -59,7 +59,7 @@ public class DefaultHealingItem implements StackableItem, Consumable {
      */
     @Override
     public int getValue() {
-        return 0;
+        return parameters.getValue();
     }
 
     /**
@@ -80,6 +80,10 @@ public class DefaultHealingItem implements StackableItem, Consumable {
         return parameters;
     }
 
+    public DefaultHealingItemParameters getHealingParameters() {
+        return parameters;
+    }
+
     /**
      *
      */
@@ -94,7 +98,7 @@ public class DefaultHealingItem implements StackableItem, Consumable {
      * @param target
      */
     public void useItem(Healable target) {
-        target.heal(parameters.getParameter("potency"));
+        target.heal(parameters.getPotency());
         consumeItem();
     }
 }

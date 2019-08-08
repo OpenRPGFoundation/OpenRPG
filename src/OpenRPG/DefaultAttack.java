@@ -4,27 +4,27 @@ public class DefaultAttack implements Attack, AttackProcessor, Animation{
 
     private String attackName;
     private int baseDamage;
-    private DamageModifier modifier;
+    private Modifier damageModifier;
 
     DefaultAttack(String name){
 
         attackName = name;
         baseDamage = 1;
-        modifier = new DamageModifier();
+        damageModifier = new Modifier();
     }
 
     DefaultAttack(String name, int baseDamage){
 
         attackName = name;
         this.baseDamage = baseDamage;
-        modifier = new DamageModifier();
+        damageModifier = new Modifier();
     }
 
-    DefaultAttack(String name, int baseDamage, DamageModifier modifier){
+    DefaultAttack(String name, int baseDamage, Modifier damageModifier){
 
         attackName = name;
         this.baseDamage = baseDamage;
-        this.modifier = modifier;
+        this.damageModifier = damageModifier;
     }
 
     @Override
@@ -38,13 +38,14 @@ public class DefaultAttack implements Attack, AttackProcessor, Animation{
     }
 
     @Override
-    public void dealDamage(IGameCharacter attacker, IGameCharacter defender) {
-        int totalDamage = calculateDamage(attacker.getParameters(), defender.getParameters(), modifier);
-        defender.dealDamage(totalDamage);
+    public void dealDamage(IGameCharacter attacker, Damageable defender) {
+        DefaultCharacter temp = (DefaultCharacter) defender;
+        int totalDamage = calculateDamage(attacker.getParameters(), temp.getParameters(), damageModifier);
+        defender.damage(totalDamage);
     }
 
     @Override
-    public int calculateDamage(IParameters attackerStats, IParameters defenderStats, DamageModifier modifier) {
+    public int calculateDamage(IParameters attackerStats, IParameters defenderStats, Modifier modifier) {
         int attack = attackerStats.getParameter("Attack") + baseDamage - defenderStats.getParameter("Defense");
         attack = modifier.modify(attack);
 
