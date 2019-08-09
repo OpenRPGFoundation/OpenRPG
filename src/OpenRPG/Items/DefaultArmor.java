@@ -1,17 +1,17 @@
 package OpenRPG.Items;
 
-import OpenRPG.IParameters;
+import OpenRPG.IParameterSet;
 
 public class DefaultArmor extends DefaultEquipableItem {
 
-    private DefaultCombatParameters parameters;
+    private DefaultCombatParameterSet parameters;
 
     @Override
-    public IParameters getParameters() {
+    public IParameterSet getParameters() {
         return parameters;
     }
 
-    public DefaultCombatParameters getCombatParameters() {
+    public DefaultCombatParameterSet getCombatParameters() {
         return parameters;
     }
 }

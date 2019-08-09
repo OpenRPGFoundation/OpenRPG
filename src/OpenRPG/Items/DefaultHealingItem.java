@@ -5,22 +5,22 @@
 package OpenRPG.Items;
 
 import OpenRPG.Characters.Healable;
-import OpenRPG.IParameters;
+import OpenRPG.IParameterSet;
 
 
 public class DefaultHealingItem implements StackableItem, Consumable {
 
     private String name;
     private int itemCount;
-    private DefaultHealingItemParameters parameters;
+    private DefaultHealingItemParameterSet parameters;
 
     public DefaultHealingItem(String name, int itemCount, int potency, int value) {
         this.name = name;
         this.itemCount = itemCount;
-        this.parameters = new DefaultHealingItemParameters(potency, value);
+        this.parameters = new DefaultHealingItemParameterSet(potency, value);
     }
 
-    public DefaultHealingItem(String name, int itemCount, DefaultHealingItemParameters parameters) {
+    public DefaultHealingItem(String name, int itemCount, DefaultHealingItemParameterSet parameters) {
         this.name = name;
         this.itemCount = itemCount;
         this.parameters = parameters;
@@ -76,11 +76,11 @@ public class DefaultHealingItem implements StackableItem, Consumable {
      * @return
      */
     @Override
-    public IParameters getParameters() {
+    public IParameterSet getParameters() {
         return parameters;
     }
 
-    public DefaultHealingItemParameters getHealingParameters() {
+    public DefaultHealingItemParameterSet getHealingParameters() {
         return parameters;
     }
 

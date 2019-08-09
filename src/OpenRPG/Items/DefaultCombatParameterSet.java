@@ -1,10 +1,10 @@
 package OpenRPG.Items;
 
-import OpenRPG.IParameters;
+import OpenRPG.IParameterSet;
 
 import java.util.Map;
 
-public class DefaultCombatParameters implements IParameters {
+public class DefaultCombatParameterSet implements IParameterSet {
 
     @Override
     public int getParameter(String parameterName) {

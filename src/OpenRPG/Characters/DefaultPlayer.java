@@ -1,12 +1,12 @@
 package OpenRPG.Characters;
 
-import OpenRPG.IParameters;
+import OpenRPG.IParameterSet;
 import OpenRPG.Levelable;
 import OpenRPG.Moveable;
 
 public class DefaultPlayer extends DefaultBattler implements Levelable, Moveable {
 
-    public DefaultPlayer(String name, IParameters parameters) {
+    public DefaultPlayer(String name, IParameterSet parameters) {
         super(name, parameters);
     }
 

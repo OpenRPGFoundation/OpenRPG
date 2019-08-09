@@ -2,7 +2,7 @@ package OpenRPG;
 
 import java.util.Map;
 
-public interface IParameters {
+public interface IParameterSet {
 
     int getParameter(String parameterName);
 

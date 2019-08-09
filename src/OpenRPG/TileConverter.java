@@ -32,6 +32,16 @@ public class TileConverter {
      * height, width, and a Point that represents the tile's location in a matrix.
      * *******************************************************************************
      */
+
+    /**
+     * Determines the location of the top left pixel for a tile given the tile's
+     * height, width, and a Point that represents the tile's location in a matrix.
+     *
+     * @param location
+     * @param tileHeight
+     * @param tileWidth
+     * @return
+     */
     public static Point convertFromTile(Point location, int tileHeight, int tileWidth){
 
 

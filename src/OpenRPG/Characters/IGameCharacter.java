@@ -1,9 +1,9 @@
 package OpenRPG.Characters;
 
-import OpenRPG.IParameters;
+import OpenRPG.IParameterSet;
 
 public interface IGameCharacter {
 
-    IParameters getParameters();
+    IParameterSet getParameters();
 
 }

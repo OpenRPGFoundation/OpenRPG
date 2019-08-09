@@ -1,24 +1,24 @@
 package OpenRPG.Characters;
 
-import OpenRPG.IParameters;
+import OpenRPG.IParameterSet;
 
 public abstract class DefaultCharacter implements IGameCharacter {
 
     protected String name;
-    protected IParameters parameters;
+    protected IParameterSet parameters;
 
     public DefaultCharacter() {
         this.name = null;
         this.parameters = null;
     }
 
-    public DefaultCharacter(String name, IParameters parameters) {
+    public DefaultCharacter(String name, IParameterSet parameters) {
         this.name = name;
         this.parameters = parameters;
     }
 
     @Override
-    public IParameters getParameters() {
+    public IParameterSet getParameters() {
         return parameters;
     }
 

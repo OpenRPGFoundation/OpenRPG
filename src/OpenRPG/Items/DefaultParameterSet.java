@@ -1,15 +1,15 @@
 package OpenRPG.Items;
 
-import OpenRPG.IParameters;
+import OpenRPG.IParameterSet;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class DefaultParameters implements IParameters {
+public abstract class DefaultParameterSet implements IParameterSet {
 
     protected Map<String, Integer> parameters;
 
-    public DefaultParameters() {
+    public DefaultParameterSet() {
         parameters = new HashMap<>();
     }
 

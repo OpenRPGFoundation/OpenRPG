@@ -2,11 +2,11 @@ package OpenRPG.Characters;
 
 import OpenRPG.Animation;
 import OpenRPG.Damageable;
-import OpenRPG.IParameters;
+import OpenRPG.IParameterSet;
 
 public class DefaultBattler extends DefaultCharacter implements Damageable, Healable, Animation {
 
-    public DefaultBattler(String name, IParameters parameters) {
+    public DefaultBattler(String name, IParameterSet parameters) {
         super(name, parameters);
     }
 

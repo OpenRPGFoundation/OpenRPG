@@ -1,6 +1,6 @@
 package OpenRPG.Items;
 
-import OpenRPG.IParameters;
+import OpenRPG.IParameterSet;
 
 public abstract class DefaultEquipableItem implements IItem, Equipable {
 
@@ -17,7 +17,7 @@ public abstract class DefaultEquipableItem implements IItem, Equipable {
     }
 
     @Override
-    public abstract IParameters getParameters();
+    public abstract IParameterSet getParameters();
 
     @Override
     public void setEquipped(boolean equipped) {

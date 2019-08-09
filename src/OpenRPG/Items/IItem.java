@@ -1,10 +1,10 @@
 package OpenRPG.Items;
 
-import OpenRPG.IParameters;
+import OpenRPG.IParameterSet;
 
 public interface IItem {
     int getValue();
 
     int getCost();
 
-    IParameters getParameters();}
+    IParameterSet getParameters();}
