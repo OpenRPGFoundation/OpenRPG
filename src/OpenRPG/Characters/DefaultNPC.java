@@ -1,4 +1,7 @@
-package OpenRPG;
+package OpenRPG.Characters;
+
+import OpenRPG.Animation;
+import OpenRPG.Moveable;
 
 public class DefaultNPC extends DefaultCharacter implements Moveable, Animation {
 

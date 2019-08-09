@@ -1,5 +1,8 @@
 package OpenRPG;
 
+import OpenRPG.Characters.DefaultCharacter;
+import OpenRPG.Characters.IGameCharacter;
+
 public class DefaultAttack implements Attack, AttackProcessor, Animation{
 
     private String attackName;

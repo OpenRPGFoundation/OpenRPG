@@ -1,4 +1,4 @@
-package OpenRPG;
+package OpenRPG.Characters;
 
 public interface Healable {
 

@@ -1,4 +1,4 @@
-package OpenRPG;
+package OpenRPG.Characters;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

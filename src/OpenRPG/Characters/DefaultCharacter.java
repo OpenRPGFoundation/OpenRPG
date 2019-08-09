@@ -1,4 +1,6 @@
-package OpenRPG;
+package OpenRPG.Characters;
+
+import OpenRPG.IParameters;
 
 public abstract class DefaultCharacter implements IGameCharacter {
 
