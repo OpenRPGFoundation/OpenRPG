@@ -1,5 +1,6 @@
 package OpenRPG;
 
+import OpenRPG.Characters.DefaultBattler;
 import OpenRPG.Characters.DefaultCharacter;
 import OpenRPG.Characters.IGameCharacter;
 
@@ -41,7 +42,7 @@ public class DefaultAttack implements Attack, AttackProcessor, Animation{
     }
 
     @Override
-    public void dealDamage(IGameCharacter attacker, Damageable defender) {
+    public void dealDamage(DefaultBattler attacker, Damageable defender) {
         DefaultCharacter temp = (DefaultCharacter) defender;
         int totalDamage = calculateDamage(attacker.getParameters(), temp.getParameters(), damageModifier);
         defender.damage(totalDamage);
