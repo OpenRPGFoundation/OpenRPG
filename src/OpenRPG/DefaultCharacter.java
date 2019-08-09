@@ -1,6 +1,6 @@
 package OpenRPG;
 
-public class DefaultCharacter implements IGameCharacter {
+public abstract class DefaultCharacter implements IGameCharacter {
 
     protected String name;
     protected IParameters parameters;

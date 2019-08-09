@@ -1,8 +1,8 @@
 package OpenRPG;
 
-public class DefaultPlayer extends DefaultBattler implements Levelable, Moveable {
+public class DefaultBattler extends DefaultCharacter implements Damageable, Healable, Animation {
 
-    public DefaultPlayer(String name, IParameters parameters) {
+    public DefaultBattler(String name, IParameters parameters) {
         super(name, parameters);
     }
 
@@ -13,31 +13,6 @@ public class DefaultPlayer extends DefaultBattler implements Levelable, Moveable
 
     @Override
     public void animate(int... frames) {
-
-    }
-
-    @Override
-    public void move() {
-
-    }
-
-    @Override
-    public int getLevel() {
-        return 0;
-    }
-
-    @Override
-    public int getExp() {
-        return 0;
-    }
-
-    @Override
-    public void increaseLevel() {
-
-    }
-
-    @Override
-    public void addExperience(int exp) {
 
     }
 
