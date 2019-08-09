@@ -4,7 +4,7 @@ import OpenRPG.Characters.DefaultBattler;
 import OpenRPG.Characters.DefaultCharacter;
 import OpenRPG.Characters.IGameCharacter;
 
-public class DefaultAttack implements Attack, AttackProcessor, Animation{
+public class DefaultAttack implements Attack, Animation{
 
     private String attackName;
     private int baseDamage;
