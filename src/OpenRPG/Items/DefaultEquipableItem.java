@@ -2,7 +2,7 @@ package OpenRPG.Items;
 
 import OpenRPG.IParameters;
 
-public class DefaultEquipableItem implements IItem, Equipable {
+public abstract class DefaultEquipableItem implements IItem, Equipable {
 
     private boolean equipped;
 
@@ -17,9 +17,7 @@ public class DefaultEquipableItem implements IItem, Equipable {
     }
 
     @Override
-    public IParameters getParameters() {
-        return null;
-    }
+    public abstract IParameters getParameters();
 
     @Override
     public void setEquipped(boolean equipped) {

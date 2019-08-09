@@ -1,6 +1,6 @@
 package OpenRPG;
 
-class Modifier {
+public class Modifier {
 
     private float modifierValue;
 

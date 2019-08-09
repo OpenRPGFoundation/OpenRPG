@@ -2,7 +2,7 @@ package OpenRPG.Items;
 
 import OpenRPG.IParameters;
 
-public class DefaultWeapon extends DefaultEquipableItem {
+public class DefaultArmor extends DefaultEquipableItem {
 
     private DefaultCombatParameters parameters;
 

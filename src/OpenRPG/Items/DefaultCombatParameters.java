@@ -4,7 +4,7 @@ import OpenRPG.IParameters;
 
 import java.util.Map;
 
-public class DefaultWeaponParameters implements IParameters {
+public class DefaultCombatParameters implements IParameters {
 
     @Override
     public int getParameter(String parameterName) {
