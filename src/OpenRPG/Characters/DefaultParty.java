@@ -6,39 +6,44 @@ import java.util.List;
 
 public class DefaultParty implements IParty {
 
-    private List<IGameCharacter> characterList;
+    private List<DefaultBattler> characterList;
 
     public DefaultParty(){
         characterList = new ArrayList<>();
     }
 
 
-    public DefaultParty(ArrayList<IGameCharacter> characters){
+    public DefaultParty(ArrayList<DefaultBattler> characters){
         characterList = characters;
     }
 
     @Override
-    public List<IGameCharacter> getPartyMembers() {
+    public List<DefaultBattler> getPartyMembers() {
         return characterList;
     }
 
     @Override
-    public IGameCharacter getCharacter(IGameCharacter character) {
+    public DefaultBattler getCharacter(DefaultBattler character) {
         return characterList.get(characterList.indexOf(character));
     }
 
     @Override
-    public IGameCharacter getCharacterByIndex(int index) {
+    public DefaultBattler getCharacterByIndex(int index) {
         return characterList.get(index);
     }
 
     @Override
-    public void addPartyMember(IGameCharacter character) {
+    public DefaultBattler[] getAllCharacters() {
+        return characterList.toArray(DefaultBattler[]::new);
+    }
+
+    @Override
+    public void addPartyMember(DefaultBattler character) {
         characterList.add(character);
     }
 
     @Override
-    public void removePartyMember(IGameCharacter character) {
+    public void removePartyMember(DefaultBattler character) {
         characterList.remove(character);
     }
 
@@ -48,7 +53,7 @@ public class DefaultParty implements IParty {
     }
 
     @Override
-    public void switchMembers(IGameCharacter characterOne, IGameCharacter characterTwo) {
+    public void switchMembers(DefaultBattler characterOne, DefaultBattler characterTwo) {
         int index1 = characterList.indexOf(characterOne);
         int index2 = characterList.indexOf(characterTwo);
 
@@ -58,8 +63,8 @@ public class DefaultParty implements IParty {
 
     @Override
     public void switchMembers(int indexOne, int indexTwo) {
-        IGameCharacter characterOne = getCharacterByIndex(indexOne);
-        IGameCharacter characterTwo = getCharacterByIndex(indexTwo);
+        DefaultBattler characterOne = getCharacterByIndex(indexOne);
+        DefaultBattler characterTwo = getCharacterByIndex(indexTwo);
 
         characterList.add(indexOne, characterTwo);
         characterList.add(indexTwo, characterOne);

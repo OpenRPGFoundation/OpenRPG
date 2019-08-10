@@ -1,6 +1,11 @@
 package OpenRPG;
 
+import OpenRPG.Characters.DefaultBattler;
+import OpenRPG.Characters.IParty;
+
 public interface Battle {
+    void startBattle();
     void endBattle();
-    void changeActiveCharacter(IGameCharacter nextBattler);
+    void setBattleOrder(IParty battleOrder, IParty playerParty, IParty enemyParty);
+    void changeActiveCharacter(DefaultBattler nextBattler);
 }
