@@ -6,6 +6,6 @@ import OpenRPG.Characters.IParty;
 public interface Battle {
     void startBattle();
     void endBattle();
-    void setBattleOrder(IParty battleOrder, IParty playerParty, IParty enemyParty);
+    void setBattleOrder(IParty playerParty, IParty enemyParty);
     void changeActiveCharacter(DefaultBattler nextBattler);
 }
