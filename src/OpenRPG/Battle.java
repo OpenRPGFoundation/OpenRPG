@@ -8,4 +8,5 @@ public interface Battle {
     void endBattle();
     void setBattleOrder(IParty playerParty, IParty enemyParty);
     void changeActiveCharacter(DefaultBattler nextBattler);
+    void progressBattle();
 }

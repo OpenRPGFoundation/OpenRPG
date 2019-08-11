@@ -1,8 +1,6 @@
 package OpenRPG.Characters;
 
-import OpenRPG.IParameterSet;
-import OpenRPG.Levelable;
-import OpenRPG.Moveable;
+import OpenRPG.*;
 
 public class DefaultPlayer extends DefaultBattler implements Levelable, Moveable {
 
@@ -43,5 +41,9 @@ public class DefaultPlayer extends DefaultBattler implements Levelable, Moveable
     @Override
     public void addExperience(int exp) {
 
+    }
+
+    public Attack getAttack(int index){
+        return null;
     }
 }

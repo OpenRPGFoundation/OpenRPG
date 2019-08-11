@@ -1,16 +1,15 @@
 package OpenRPG;
 
-import OpenRPG.Characters.DefaultBattler;
-import OpenRPG.Characters.DefaultParty;
-import OpenRPG.Characters.IGameCharacter;
-import OpenRPG.Characters.IParty;
+import OpenRPG.Characters.*;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.LinkedList;
 
 public class DefaultBattle implements Battle, IScene {
 
-    private DefaultParty playerParty, enemyParty, battleOrder;
+    private DefaultParty playerParty, enemyParty;
+
+    private LinkedList<DefaultBattler> battleOrder = new LinkedList<>();
 
     public DefaultBattle(DefaultParty playerParty, DefaultParty enemyParty) {
         this.playerParty = playerParty;
@@ -33,11 +32,26 @@ public class DefaultBattle implements Battle, IScene {
     public void setBattleOrder(IParty playerParty, IParty enemyParty) {
         ArrayList<DefaultBattler> sorter = new ArrayList<>();
         sorter.sort(DefaultBattler.compareSpeed);
+
+        for (DefaultBattler battler : sorter) {
+            battleOrder.add(battler);
+        }
     }
 
     @Override
     public void changeActiveCharacter(DefaultBattler nextBattler) {
 
+    }
+
+    @Override
+    public void progressBattle() {
+        DefaultBattler activeCharacter = battleOrder.pop();
+
+        if(activeCharacter instanceof DefaultPlayer) {
+            DefaultPlayer activePlayerCharacter = (DefaultPlayer) activeCharacter;
+        } else {
+
+        }
     }
 
     @Override
