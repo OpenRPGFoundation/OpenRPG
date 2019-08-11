@@ -44,23 +44,4 @@ public class DefaultPlayer extends DefaultBattler implements Levelable, Moveable
     public void addExperience(int exp) {
 
     }
-
-    @Override
-    public void damage(int amount) {
-        int oldHP = parameters.getParameter("currentHP");
-        int newHP = oldHP - amount;
-
-        if(newHP < 0) {
-            newHP = 0;
-        }
-
-        parameters.setParameterValue("currentHP", newHP);
-    }
-
-    @Override
-    public void heal(int amount) {
-        int oldHP = parameters.getParameter("currentHP");
-        int newHP = oldHP + amount;
-        parameters.setParameterValue("currentHP", newHP);
-    }
 }

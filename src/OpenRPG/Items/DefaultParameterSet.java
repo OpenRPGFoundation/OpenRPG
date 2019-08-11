@@ -1,5 +1,6 @@
 package OpenRPG.Items;
 
+import OpenRPG.DefaultParameter;
 import OpenRPG.IParameterSet;
 
 import java.util.HashMap;
@@ -7,24 +8,24 @@ import java.util.Map;
 
 public abstract class DefaultParameterSet implements IParameterSet {
 
-    protected Map<String, Integer> parameters;
+    protected Map<String, DefaultParameter> parameters;
 
     public DefaultParameterSet() {
         parameters = new HashMap<>();
     }
 
     @Override
-    public int getParameter(String parameterName) {
+    public DefaultParameter getParameter(String parameterName) {
         return parameters.get(parameterName);
     }
 
     @Override
-    public void setParameterValue(String parameter, int value) {
-        parameters.put(parameter, value);
+    public void setParameter(String name, DefaultParameter parameter) {
+        parameters.put(name, parameter);
     }
 
     @Override
-    public void setAllParameters(Map<String, Integer> parameters) {
+    public void setAllParameters(Map<String, DefaultParameter> parameters) {
         this.parameters = parameters;
     }
 

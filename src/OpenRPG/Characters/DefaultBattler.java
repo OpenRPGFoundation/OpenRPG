@@ -2,6 +2,7 @@ package OpenRPG.Characters;
 
 import OpenRPG.Animation;
 import OpenRPG.Damageable;
+import OpenRPG.DefaultParameter;
 import OpenRPG.IParameterSet;
 
 import java.util.Comparator;
@@ -24,28 +25,49 @@ public class DefaultBattler extends DefaultCharacter implements Damageable, Heal
 
     @Override
     public void damage(int amount) {
-        int oldHP = parameters.getParameter("currentHP");
-        int newHP = oldHP - amount;
+        DefaultParameter oldHP = parameters.getParameter("currentHP");
+        int difference = oldHP.getValue() - amount;
 
-        if(newHP < 0) {
-            newHP = 0;
+        if(difference < 0) {
+            difference = 0;
         }
 
-        parameters.setParameterValue("currentHP", newHP);
+        DefaultParameter newHP = new DefaultParameter(difference);
+
+        parameters.setParameter("currentHP", newHP);
     }
 
     @Override
     public void heal(int amount) {
-        int oldHP = parameters.getParameter("currentHP");
-        int newHP = oldHP + amount;
-        parameters.setParameterValue("currentHP", newHP);
+        DefaultParameter oldHP = parameters.getParameter("currentHP");
+        DefaultParameter totalHP = parameters.getParameter("HP");
+
+        int total = oldHP.getValue() + amount;
+
+        if (total > totalHP.getValue()) {
+            total = totalHP.getValue();
+        }
+
+        DefaultParameter newHP = new DefaultParameter(total);
+
+        parameters.setParameter("currentHP", newHP);
+    }
+
+    public DefaultParameter getParameter(String parameterName) {
+        return parameters.getParameter(parameterName);
+    }
+
+    public DefaultParameter getSpeed() {
+        return parameters.getParameter("speed");
     }
 
     public static Comparator<DefaultBattler> compareSpeed = new Comparator<DefaultBattler>() {
         @Override
         public int compare(DefaultBattler b1, DefaultBattler b2) {
-            int battler1Speed = b1.g
-            return 0;
+            DefaultParameter battler1Speed = b1.getSpeed();
+            DefaultParameter battler2Speed = b2.getSpeed();
+
+            return DefaultParameter.compareParameter.compare(battler1Speed, battler2Speed);
         }
     };
 }

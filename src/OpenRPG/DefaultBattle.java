@@ -32,7 +32,7 @@ public class DefaultBattle implements Battle, IScene {
     @Override
     public void setBattleOrder(IParty playerParty, IParty enemyParty) {
         ArrayList<DefaultBattler> sorter = new ArrayList<>();
-        sorter.sort();
+        sorter.sort(DefaultBattler.compareSpeed);
     }
 
     @Override

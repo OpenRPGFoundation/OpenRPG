@@ -1,5 +1,6 @@
 package OpenRPG.Items;
 
+import OpenRPG.DefaultParameter;
 import OpenRPG.IParameterSet;
 
 import java.util.HashMap;
@@ -9,8 +10,8 @@ public class DefaultHealingItemParameterSet extends DefaultParameterSet {
 
     public DefaultHealingItemParameterSet() {
         super();
-        parameters.put("potency", 0);
-        parameters.put("value", 0);
+        parameters.put("potency", new DefaultParameter());
+        parameters.put("value", new DefaultParameter());
     }
 
     @Override
@@ -18,17 +19,19 @@ public class DefaultHealingItemParameterSet extends DefaultParameterSet {
         return null;
     }
 
-    public DefaultHealingItemParameterSet(int potency, int value) {
+    public DefaultHealingItemParameterSet(int potencyValue, int baseValue) {
         super();
+        DefaultParameter potency = new DefaultParameter(potencyValue);
+        DefaultParameter value = new DefaultParameter(baseValue);
         parameters.put("potency", potency);
         parameters.put("value", value);
     }
 
     public int getPotency() {
-        return getParameter("potency");
+        return getParameter("potency").getValue();
     }
 
     public int getValue() {
-        return parameters.get("value");
+        return parameters.get("value").getValue();
     }
 }

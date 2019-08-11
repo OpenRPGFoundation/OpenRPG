@@ -1,23 +1,27 @@
 package OpenRPG.Items;
 
+import OpenRPG.DefaultParameter;
 import OpenRPG.IParameterSet;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class DefaultCombatParameterSet implements IParameterSet {
 
+    HashMap<String, DefaultParameter> parameters;
+
     @Override
-    public int getParameter(String parameterName) {
-        return 0;
+    public DefaultParameter getParameter(String parameterName) {
+        return parameters.get(parameterName);
     }
 
     @Override
-    public void setParameterValue(String parameter, int value) {
+    public void setParameter(String parameterName, DefaultParameter parameter) {
 
     }
 
     @Override
-    public void setAllParameters(Map<String, Integer> parameters) {
+    public void setAllParameters(Map<String, DefaultParameter> parameters) {
 
     }
 
