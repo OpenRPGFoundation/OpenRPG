@@ -50,7 +50,8 @@ public class DefaultAttack implements Attack, Animation{
 
     @Override
     public int calculateDamage(IParameterSet attackerStats, IParameterSet defenderStats, Modifier modifier) {
-        int attack = attackerStats.getParameter("Attack") + baseDamage - defenderStats.getParameter("Defense");
+        int attack = attackerStats.getParameter("Attack").getValue() + baseDamage
+                - defenderStats.getParameter("Defense").getValue();
         attack = modifier.modify(attack);
 
         if (attack < 0) {

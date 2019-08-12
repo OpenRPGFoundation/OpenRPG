@@ -5,14 +5,14 @@ import OpenRPG.DefaultBattle;
 import java.util.List;
 
 public interface IParty{
-    List<DefaultBattler> getPartyMembers();
-    DefaultBattler getCharacter(DefaultBattler character);
-    DefaultBattler getCharacterByIndex(int index);
-    DefaultBattler[] getAllCharacters();
-    void addPartyMember(DefaultBattler character);
-    void removePartyMember(DefaultBattler character);
+    List<IGameCharacter> getPartyMembers();
+    IGameCharacter getCharacter(IGameCharacter character);
+    IGameCharacter getCharacterByIndex(int index);
+    IGameCharacter[] getAllCharacters();
+    void addPartyMember(IGameCharacter character);
+    void removePartyMember(IGameCharacter character);
     void removeMemberByIndex(int index);
-    void switchMembers(DefaultBattler characterOne, DefaultBattler characterTwo);
+    void switchMembers(IGameCharacter characterOne, IGameCharacter characterTwo);
     void switchMembers(int indexOne, int indexTwo);
 
 }

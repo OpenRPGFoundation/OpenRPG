@@ -1,9 +1,6 @@
 package OpenRPG.Characters;
 
-import OpenRPG.Animation;
-import OpenRPG.Damageable;
-import OpenRPG.DefaultParameter;
-import OpenRPG.IParameterSet;
+import OpenRPG.*;
 
 import java.util.Comparator;
 
@@ -25,7 +22,7 @@ public class DefaultBattler extends DefaultCharacter implements Damageable, Heal
 
     @Override
     public void damage(int amount) {
-        DefaultParameter oldHP = parameters.getParameter("currentHP");
+        IParameter oldHP = parameters.getParameter("currentHP");
         int difference = oldHP.getValue() - amount;
 
         if(difference < 0) {
@@ -39,8 +36,8 @@ public class DefaultBattler extends DefaultCharacter implements Damageable, Heal
 
     @Override
     public void heal(int amount) {
-        DefaultParameter oldHP = parameters.getParameter("currentHP");
-        DefaultParameter totalHP = parameters.getParameter("HP");
+        IParameter oldHP = parameters.getParameter("currentHP");
+        IParameter totalHP = parameters.getParameter("HP");
 
         int total = oldHP.getValue() + amount;
 
@@ -53,21 +50,25 @@ public class DefaultBattler extends DefaultCharacter implements Damageable, Heal
         parameters.setParameter("currentHP", newHP);
     }
 
-    public DefaultParameter getParameter(String parameterName) {
+    public IParameter getParameter(String parameterName) {
         return parameters.getParameter(parameterName);
     }
 
-    public DefaultParameter getSpeed() {
+    public IParameter getSpeed() {
         return parameters.getParameter("speed");
     }
 
     public static Comparator<DefaultBattler> compareSpeed = new Comparator<DefaultBattler>() {
         @Override
         public int compare(DefaultBattler b1, DefaultBattler b2) {
-            DefaultParameter battler1Speed = b1.getSpeed();
-            DefaultParameter battler2Speed = b2.getSpeed();
+            IParameter battler1Speed = b1.getSpeed();
+            IParameter battler2Speed = b2.getSpeed();
 
             return DefaultParameter.compareParameter.compare(battler1Speed, battler2Speed);
         }
     };
+
+    public Attack getAttack(int index){
+        return null;
+    }
 }

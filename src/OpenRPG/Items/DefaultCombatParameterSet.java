@@ -1,6 +1,7 @@
 package OpenRPG.Items;
 
 import OpenRPG.DefaultParameter;
+import OpenRPG.IParameter;
 import OpenRPG.IParameterSet;
 
 import java.util.HashMap;
@@ -8,20 +9,20 @@ import java.util.Map;
 
 public class DefaultCombatParameterSet implements IParameterSet {
 
-    HashMap<String, DefaultParameter> parameters;
+    HashMap<String, IParameter> parameters;
 
     @Override
-    public DefaultParameter getParameter(String parameterName) {
+    public IParameter getParameter(String parameterName) {
         return parameters.get(parameterName);
     }
 
     @Override
-    public void setParameter(String parameterName, DefaultParameter parameter) {
+    public void setParameter(String parameterName, IParameter parameter) {
 
     }
 
     @Override
-    public void setAllParameters(Map<String, DefaultParameter> parameters) {
+    public void setAllParameters(Map<String, IParameter> parameters) {
 
     }
 

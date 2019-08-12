@@ -4,14 +4,11 @@ import OpenRPG.IParameterSet;
 
 public class DefaultWeapon extends DefaultEquipableItem {
 
-    private DefaultCombatParameterSet parameters;
+    private IParameterSet parameters;
 
     @Override
     public IParameterSet getParameters() {
         return parameters;
     }
 
-    public DefaultCombatParameterSet getCombatParameters() {
-        return parameters;
-    }
 }

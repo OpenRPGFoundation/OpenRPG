@@ -42,8 +42,4 @@ public class DefaultPlayer extends DefaultBattler implements Levelable, Moveable
     public void addExperience(int exp) {
 
     }
-
-    public Attack getAttack(int index){
-        return null;
-    }
 }

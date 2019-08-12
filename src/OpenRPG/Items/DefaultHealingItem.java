@@ -80,7 +80,7 @@ public class DefaultHealingItem implements StackableItem, Consumable {
         return parameters;
     }
 
-    public DefaultHealingItemParameterSet getHealingParameters() {
+    public IParameterSet getHealingParameters() {
         return parameters;
     }
 
