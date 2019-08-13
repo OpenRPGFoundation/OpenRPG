@@ -1,11 +1,11 @@
 package OpenRPG;
 
 
-import OpenRPG.Characters.DefaultBattler;
+import OpenRPG.Characters.Battler;
 
 public interface Attack {
     int getBaseDamage();
     String getAttackName();
     int calculateDamage(IParameterSet attackerStats, IParameterSet defenderStats, Modifier modifier);
-    void dealDamage(DefaultBattler attacker, Damageable defender);
+    void dealDamage(Battler attacker, Damageable defender);
 }

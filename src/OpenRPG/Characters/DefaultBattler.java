@@ -1,13 +1,22 @@
 package OpenRPG.Characters;
 
 import OpenRPG.*;
+import OpenRPG.Items.DefaultCombatParameterSet;
 
 import java.util.Comparator;
 
 public class DefaultBattler extends DefaultCharacter implements Damageable, Healable, Battler, Animation {
 
+    protected IParameterSet parameters;
+
+    public DefaultBattler(String name) {
+        super(name);
+        this.parameters = null;
+    }
+
     public DefaultBattler(String name, IParameterSet parameters) {
-        super(name, parameters);
+        super(name);
+        this.parameters = parameters;
     }
 
     @Override
@@ -62,6 +71,11 @@ public class DefaultBattler extends DefaultCharacter implements Damageable, Heal
     @Override
     public void setParameter(String parameterName, IParameter parameter) {
         parameters.setParameter(parameterName, parameter);
+    }
+
+    @Override
+    public IParameterSet getParameters() {
+        return parameters;
     }
 
     @Override
