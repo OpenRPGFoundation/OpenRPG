@@ -11,6 +11,11 @@ public class DefaultCombatParameterSet implements IParameterSet {
 
     HashMap<String, IParameter> parameters;
 
+    public DefaultCombatParameterSet(IParameter speed) {
+        parameters = new HashMap<>();
+        parameters.put("Speed", speed);
+    }
+
     @Override
     public IParameter getParameter(String parameterName) {
         return parameters.get(parameterName);

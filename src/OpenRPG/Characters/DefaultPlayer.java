@@ -2,7 +2,7 @@ package OpenRPG.Characters;
 
 import OpenRPG.*;
 
-public class DefaultPlayer extends DefaultBattler implements Levelable, Moveable {
+public class DefaultPlayer extends DefaultBattler implements Levelable, Moveable, Controllable {
 
     public DefaultPlayer(String name, IParameterSet parameters) {
         super(name, parameters);

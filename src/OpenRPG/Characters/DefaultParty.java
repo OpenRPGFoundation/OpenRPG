@@ -1,49 +1,56 @@
 package OpenRPG.Characters;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DefaultParty implements IParty {
 
-    private List<IGameCharacter> characterList;
+    private List<Battler> characterList;
 
     public DefaultParty(){
         characterList = new ArrayList<>();
     }
 
 
-    public DefaultParty(ArrayList<IGameCharacter> characters){
+    public DefaultParty(ArrayList<Battler> characters){
         characterList = characters;
     }
 
+    public DefaultParty(Battler... characters) {
+        characterList = new ArrayList<>();
+
+        for (Battler character : characters) {
+            characterList.add(character);
+        }
+    }
+
     @Override
-    public List<IGameCharacter> getPartyMembers() {
+    public List<Battler> getPartyMembers() {
         return characterList;
     }
 
     @Override
-    public IGameCharacter getCharacter(IGameCharacter character) {
+    public Battler getCharacter(Battler character) {
         return characterList.get(characterList.indexOf(character));
     }
 
     @Override
-    public IGameCharacter getCharacterByIndex(int index) {
+    public Battler getCharacterByIndex(int index) {
         return characterList.get(index);
     }
 
     @Override
-    public IGameCharacter[] getAllCharacters() {
-        return characterList.toArray(IGameCharacter[]::new);
+    public Battler[] getAllCharacters() {
+        return characterList.toArray(Battler[]::new);
     }
 
     @Override
-    public void addPartyMember(IGameCharacter character) {
+    public void addPartyMember(Battler character) {
         characterList.add(character);
     }
 
     @Override
-    public void removePartyMember(IGameCharacter character) {
+    public void removePartyMember(Battler character) {
         characterList.remove(character);
     }
 
@@ -53,7 +60,7 @@ public class DefaultParty implements IParty {
     }
 
     @Override
-    public void switchMembers(IGameCharacter characterOne, IGameCharacter characterTwo) {
+    public void switchMembers(Battler characterOne, Battler characterTwo) {
         int index1 = characterList.indexOf(characterOne);
         int index2 = characterList.indexOf(characterTwo);
 
@@ -63,8 +70,8 @@ public class DefaultParty implements IParty {
 
     @Override
     public void switchMembers(int indexOne, int indexTwo) {
-        IGameCharacter characterOne = getCharacterByIndex(indexOne);
-        IGameCharacter characterTwo = getCharacterByIndex(indexTwo);
+        Battler characterOne = getCharacterByIndex(indexOne);
+        Battler characterTwo = getCharacterByIndex(indexTwo);
 
         characterList.add(indexOne, characterTwo);
         characterList.add(indexTwo, characterOne);

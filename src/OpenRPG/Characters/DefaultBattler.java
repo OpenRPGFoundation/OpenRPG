@@ -4,7 +4,7 @@ import OpenRPG.*;
 
 import java.util.Comparator;
 
-public class DefaultBattler extends DefaultCharacter implements Damageable, Healable, Animation {
+public class DefaultBattler extends DefaultCharacter implements Damageable, Healable, Battler, Animation {
 
     public DefaultBattler(String name, IParameterSet parameters) {
         super(name, parameters);
@@ -50,12 +50,27 @@ public class DefaultBattler extends DefaultCharacter implements Damageable, Heal
         parameters.setParameter("currentHP", newHP);
     }
 
+    @Override
+    public IParameter getBattleOrderParameter() {
+        return getSpeed();
+    }
+
     public IParameter getParameter(String parameterName) {
         return parameters.getParameter(parameterName);
     }
 
+    @Override
+    public void setParameter(String parameterName, IParameter parameter) {
+        parameters.setParameter(parameterName, parameter);
+    }
+
+    @Override
+    public void setParameters(IParameterSet parameters) {
+        this.parameters = parameters;
+    }
+
     public IParameter getSpeed() {
-        return parameters.getParameter("speed");
+        return parameters.getParameter("Speed");
     }
 
     public static Comparator<DefaultBattler> compareSpeed = new Comparator<DefaultBattler>() {
@@ -64,7 +79,7 @@ public class DefaultBattler extends DefaultCharacter implements Damageable, Heal
             IParameter battler1Speed = b1.getSpeed();
             IParameter battler2Speed = b2.getSpeed();
 
-            return DefaultParameter.compareParameter.compare(battler1Speed, battler2Speed);
+            return DefaultParameter.compareParameter.compare((DefaultParameter)battler1Speed, (DefaultParameter)battler2Speed);
         }
     };
 

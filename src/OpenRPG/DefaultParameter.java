@@ -24,13 +24,13 @@ public class DefaultParameter implements IParameter {
         this.value = value;
     }
 
-    public static Comparator<IParameter> compareParameter = new Comparator<IParameter>() {
+    public static Comparator<DefaultParameter> compareParameter = new Comparator<DefaultParameter>() {
         @Override
-        public int compare(IParameter p1, IParameter p2) {
+        public int compare(DefaultParameter p1, DefaultParameter p2) {
             int parameter1 = p1.getValue();
             int parameter2 = p2.getValue();
 
-            return parameter1 - parameter2;
+            return  parameter2 - parameter1;
         }
     };
 }
