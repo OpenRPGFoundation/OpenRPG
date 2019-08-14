@@ -9,8 +9,9 @@ public interface Battle {
     void startBattle();
     void progressBattle();
     void endBattle();
-    void setBattleOrder();
     void changeActiveCharacter();
     void changeActiveCharacter(Battler nextBattler);
+    int getBackgroundID();
+    void setBackgroundID(int backgroundID);
     Battler getActiveCharacter();
 }

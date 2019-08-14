@@ -1,5 +1,12 @@
 package OpenRPG;
 
+import OpenRPG.Characters.IGameCharacter;
+
+import java.awt.*;
+
 public interface IScene {
-    void displayBackground();
+    Point getCharacterLocation(IGameCharacter character);
+    Point[] getAllCharacterLocations();
+    void setCharacterLocation(IGameCharacter character, Point location);
+
 }

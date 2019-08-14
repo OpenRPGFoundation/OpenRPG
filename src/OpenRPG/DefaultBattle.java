@@ -2,6 +2,7 @@ package OpenRPG;
 
 import OpenRPG.Characters.*;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -9,7 +10,7 @@ import java.util.LinkedList;
 /**
  * @
  */
-public class DefaultBattle implements Battle, IScene {
+public class DefaultBattle implements Battle, TurnBased, IScene {
 
     private IParty playerParty, enemyParty;
 
@@ -55,7 +56,7 @@ public class DefaultBattle implements Battle, IScene {
 
     @Override
     public void changeActiveCharacter() {
-        battleOrder.push(battleOrder.pop());
+        battleOrder.add(battleOrder.poll());
     }
 
     @Override
@@ -68,6 +69,33 @@ public class DefaultBattle implements Battle, IScene {
     }
 
     @Override
+    public int getBackgroundID() {
+        return 0;
+    }
+
+    @Override
+    public void setBackgroundID(int backgroundID) {
+
+    }
+
+    @Override
+    public void changeNextActiveCharacter(Battler nextBattler) {
+        battleOrder.remove(nextBattler);
+        battleOrder.add(1, nextBattler);
+    }
+
+    @Override
+    public void moveBattlerToIndex(Battler battler, int index) {
+        battleOrder.remove(battler);
+        addBattler(battler, index);
+    }
+
+    @Override
+    public void addBattler(Battler battler, int index) {
+        battleOrder.add(index, battler);
+    }
+
+    @Override
     public Battler getActiveCharacter() {
         return battleOrder.getFirst();
     }
@@ -77,12 +105,22 @@ public class DefaultBattle implements Battle, IScene {
         changeActiveCharacter();
     }
 
-    @Override
-    public void displayBackground() {
-
-    }
-
     public LinkedList<Battler> getBattleOrder() {
         return battleOrder;
+    }
+
+    @Override
+    public Point getCharacterLocation(IGameCharacter character) {
+        return null;
+    }
+
+    @Override
+    public Point[] getAllCharacterLocations() {
+        return new Point[0];
+    }
+
+    @Override
+    public void setCharacterLocation(IGameCharacter character, Point location) {
+
     }
 }
