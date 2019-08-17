@@ -1,22 +1,30 @@
 package OpenRPG.Characters;
 
 import OpenRPG.*;
-import OpenRPG.Items.DefaultCombatParameterSet;
 
 import java.util.Comparator;
 
 public class DefaultBattler extends DefaultCharacter implements Damageable, Healable, Battler, Animation {
 
     protected IParameterSet parameters;
+    protected static String COMPARE_PARAMETER;
 
     public DefaultBattler(String name) {
         super(name);
         this.parameters = null;
+        COMPARE_PARAMETER = "Speed";
     }
 
     public DefaultBattler(String name, IParameterSet parameters) {
         super(name);
         this.parameters = parameters;
+        COMPARE_PARAMETER = "Speed";
+    }
+
+    public DefaultBattler(String name, IParameterSet parameters, String compareParameterName) {
+        super(name);
+        this.parameters = parameters;
+        COMPARE_PARAMETER = compareParameterName;
     }
 
     @Override
@@ -61,7 +69,7 @@ public class DefaultBattler extends DefaultCharacter implements Damageable, Heal
 
     @Override
     public IParameter getBattleOrderParameter() {
-        return getSpeed();
+        return getParameter(COMPARE_PARAMETER);
     }
 
     public IParameter getParameter(String parameterName) {
@@ -82,20 +90,6 @@ public class DefaultBattler extends DefaultCharacter implements Damageable, Heal
     public void setParameters(IParameterSet parameters) {
         this.parameters = parameters;
     }
-
-    public IParameter getSpeed() {
-        return parameters.getParameter("Speed");
-    }
-
-    public static Comparator<DefaultBattler> compareSpeed = new Comparator<DefaultBattler>() {
-        @Override
-        public int compare(DefaultBattler b1, DefaultBattler b2) {
-            IParameter battler1Speed = b1.getSpeed();
-            IParameter battler2Speed = b2.getSpeed();
-
-            return DefaultParameter.compareParameter.compare((DefaultParameter)battler1Speed, (DefaultParameter)battler2Speed);
-        }
-    };
 
     public Attack getAttack(int index){
         return null;
