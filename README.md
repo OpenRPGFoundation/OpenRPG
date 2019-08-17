@@ -1,5 +1,5 @@
 # OpenRPG
-![Version Number](https://img.shields.io/badge/version-v0.1.0--dev-blue.svg)
+![Version Number](https://img.shields.io/badge/version-v0.1.1--dev-blue.svg)
 
 The OpenRPG Project is an open source framework containing logic and templates designed to assist developers in creating RPG style video games. 
 
