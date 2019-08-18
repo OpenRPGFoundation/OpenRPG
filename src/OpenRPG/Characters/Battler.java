@@ -10,10 +10,10 @@ public interface Battler {
     Comparator<Battler> compareBattleOrder = new Comparator<Battler>() {
         @Override
         public int compare(Battler b1, Battler b2) {
-            IParameter battler1Speed = b1.getBattleOrderParameter();
-            IParameter battler2Speed = b2.getBattleOrderParameter();
+            IParameter battler1Parameter = b1.getBattleOrderParameter();
+            IParameter battler2Parameter = b2.getBattleOrderParameter();
 
-            return DefaultParameter.compareParameter.compare((DefaultParameter)battler1Speed, (DefaultParameter)battler2Speed);
+            return DefaultParameter.compareParameter.compare(battler1Parameter, battler2Parameter);
         }
     };
     IParameter getBattleOrderParameter();
